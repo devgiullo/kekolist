@@ -19,8 +19,10 @@ from django.contrib.auth import views
 from todo.forms import LoginForm
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
     url(r'', include('todo.urls')),
-    url(r'^login/$', views.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name='login'),
+    url(r'^admin/', admin.site.urls),
+    url(r'^login/$', views.login, {'template_name': 'login.html',
+                                   'authentication_form': LoginForm},
+                                   name='login'),
     url(r'^logout/$', views.logout, {'next_page': '/login'}),  
 ]

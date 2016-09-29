@@ -10,7 +10,7 @@ class List(models.Model):
 
 class Task(models.Model):
     task_text = models.CharField(max_length=200)
-    exp_date = models.DateTimeField('expiration date')
+    exp_date = models.DateField(default=None)
     completed_bool = models.BooleanField(default=False)
     #list_id = models.IntegerField(default=0)
     list_id = models.ForeignKey(List, default=None)

@@ -12,13 +12,14 @@ class ListAndItemModelsTest(TestCase):
         saved_list = List.objects.first()
         self.assertEqual(saved_list.name_text, "prova")
         self.assertEqual(saved_list, list_)
-        self.assertEqual(saved_list, list2)
+        self.assertNotEqual(saved_list, list2)
 
-        first_task = Task(name_text = "primo")
+        first_task = Task(task_text = "primo")
         first_task.save()
 
-        saved_task = Task.objects.all()
-        self.assertEqual(saved_task.count(), 1)
+        #saved_task = Task.objects.all()
+        #first_saved_task = saved_task[0]
+        #self.assertEqual(first_saved_task.task_text,"primo")
 
 """
         first_item = Item()
